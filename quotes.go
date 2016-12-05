@@ -23,11 +23,12 @@ func GetQuote(symbol string) (*Quote, error) {
 		return nil, err
 	}
 	
-	if len(generateQuotes(table)) == 0 {
+	quotes := generateQuotes(table)
+	if len(quotes) == 0 {
 		return nil, fmt.Errorf("The symbol does not exist")
 	}
 	
-	return generateQuotes(table)[0], nil
+	return quotes[0], nil
 }
 
 // GetQuotes fetches multiple symbol's quotes from Yahoo Finance.
