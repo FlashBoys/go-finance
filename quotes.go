@@ -22,6 +22,11 @@ func GetQuote(symbol string) (*Quote, error) {
 	if err != nil {
 		return nil, err
 	}
+	
+	if len(generateQuotes(table)) == 0 {
+		return nil, fmt.Errorf("The symbol does not exist")
+	}
+	
 	return generateQuotes(table)[0], nil
 }
 
