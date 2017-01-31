@@ -11,14 +11,17 @@ var quoteFields = []string{
 	"s",  // Symbol
 	"a",  // Ask
 	"a2", // AverageDailyVolume
+	"a5", // Ask Size
 	"b",  // Bid
 	"b4", // BookValue
+	"b6", // Bid Size
 	"c1", // Change
 	"c4", // Currency
 	"g",  // DaysLow
 	"h",  // DaysHigh
 	"j",  // YearLow
 	"k",  // YearHigh
+	"k3", // Last Trade Size
 	"j1", // MarketCapitalization
 	"l1", // LastTradePriceOnly
 	"m3", // FiftydayMovingAverage
@@ -54,8 +57,11 @@ type Quote struct {
 	Name               string
 	LastTradeTime      time.Time
 	LastTradePrice     decimal.Decimal
+	LastTradeSize      int
 	Ask                decimal.Decimal
+	AskSize            int
 	Bid                decimal.Decimal
+	BidSize            int
 	Volume             int
 	ChangeNominal      decimal.Decimal
 	ChangePercent      decimal.Decimal
@@ -102,8 +108,11 @@ func newQuote(row []string) *Quote {
 		Name:               fields["n"],
 		LastTradeTime:      parseDateAndTime(fields["d1"], fields["t1"]),
 		LastTradePrice:     toDecimal(fields["l1"]),
+		LastTradeSize:      toInt(fields["k3"]),
 		Ask:                toDecimal(fields["a"]),
+		AskSize:            toInt(fields["a5"]),
 		Bid:                toDecimal(fields["b"]),
+		BidSize:            toInt(fields["b6"]),
 		Volume:             toInt(fields["v"]),
 		ChangeNominal:      toDecimal(fields["c1"]),
 		ChangePercent:      toDecimal(fields["p2"]),
