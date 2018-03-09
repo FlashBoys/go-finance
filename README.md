@@ -9,6 +9,12 @@
 
 `go-finance` is a Go library for retrieving financial data for quantitative analysis.
 
+## Deprecation Warning! 
+This library will no longer be maintained due to several breaking yahoo finance api changes (surprise). The next gen iteration of this library that uses the newer apis (as well as a few other api integrations) will exist here - https://github.com/piquette/finance-go and is currently in early stages of development. Have an idea or want to get involved? @ me on twitter, @michael_ack. In the meantime, browse some memes - https://reddit.com/r/memes
+
+
+## ---Deprecated---
+
 To install go-finance, use the following command:
 
 ```
